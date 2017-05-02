@@ -2,7 +2,7 @@ library(epicalc)
 
 # load dataset
 
-whas <- read.dta("R:\\Miglio\\biostatistics 2016\\lab 12th may\\whas2.dta", 
+whas <- read.dta("whas2.dta", 
  convert.dates=TRUE, convert.factors=TRUE, missing.type=TRUE, 
  convert.underscore=TRUE, warn.missing.labels=TRUE)
 
@@ -28,14 +28,15 @@ library(survival)
 # Create the survival data object
 msurv<- Surv(lenfol, fstat == "Dead")
 # descriptive analysis and Kaplan-Meier estimate
+
 mfit <- survfit((msurv)~1)
 options(survfit.print.mean = TRUE)
 mfit
 summary(mfit)
 
-#Moltiplicando il valore precedente per la stima della probabilità condizionata
+#Moltiplicando il valore precedente per la stima della probabilit? condizionata
 # otteniamo il valore della stima incondizionata del blablabla (cazzo devi seguire)
-# per vedere il tempo mediano di sopravvivenza vedo quando più o meno la funzione di sopravvivenza va al di sotto del valore di 0.5
+# per vedere il tempo mediano di sopravvivenza vedo quando pi? o meno la funzione di sopravvivenza va al di sotto del valore di 0.5
 # (nel nostro caso si tratta di 2335)
 # Allo stesso modo per quanto riguarda il venticinquesimo percentile dobbiamo vedrre quello con 0.75 (ovver il 205)
 # mentre quello del 75esimo non arriviamo a stimarlo in quanto ci fermiamo allo 0.38
@@ -49,11 +50,11 @@ plot(mfit)
 # estimate the cumulative hazard function
 
 my.fit <- summary(mfit) #questo oggetto vciene creato dal summary di mfit contiene l'elemento surv
-H.hat <- -log(my.fit$surv); # che è proprio lo stimatore della funzione di kaplan mayer
+H.hat <- -log(my.fit$surv); # che ? proprio lo stimatore della funzione di kaplan mayer
 H.hat <- c(H.hat, H.hat[length(H.hat)]) # a questo oggetto si aggiunge un ulteriore elemento per rappresentarlo graficamrente
 
 plot(c(my.fit$time, my.fit$time[length(my.fit$time)]+1),H.hat,type="s") # e quindi si plotta
-plot(mfit, fun="cumhaz") #oppure questa è la funzione automatica 
+plot(mfit, fun="cumhaz") #oppure questa ? la funzione automatica 
 
 # plot KM estimate
 
@@ -79,15 +80,16 @@ plot(mfit, fun="cloglog")
 
 # Create KM estimates broken out by miord
 mfit.bymiord<-survfit((msurv)~miord)
-# nell'output è possibile vedere che il secondo intervallo di confidenza non viene riportato 
+
+# nell'output ? possibile vedere che il secondo intervallo di confidenza non viene riportato 
 plot(mfit.bymiord)
 # in questo grafico vediamo la stima delle due curve, una con miord recurrent e l'altra meno
 # la differenza tra le due curve comunque si nota!
 # with confidence band
 plot(mfit.bymiord, conf.int = TRUE, col = c("black", "red"), lty = 1:2)
 legend(locator(1), legend=c("First","Recurrent"), lty=1:2)
-# vediamo che in questo grafico la curva nera è quella del gruppo di coloro che sono 
-# al primo infarto, mentre quella in rosso è la sopravvivenza stimata di coloro che sono al 
+# vediamo che in questo grafico la curva nera ? quella del gruppo di coloro che sono 
+# al primo infarto, mentre quella in rosso ? la sopravvivenza stimata di coloro che sono al 
 # secondo o ad un superiore infarto
  
 
@@ -122,7 +124,7 @@ lty = 1:2)
 survdiff(msurv~miord, rho=0)
 # Questo test ci restituisce gli eventi osservati, quelli attesi e 
 # altre mirabolanti cose che sarebbero gli osservati meno gli attesi. 
-# il p-value è piccolo e quindi si rifiuta l'ipotesi nulla che le due curve
+# il p-value ? piccolo e quindi si rifiuta l'ipotesi nulla che le due curve
 # siano uguali tra di loro. 
 
 # Peto test 
@@ -135,12 +137,12 @@ survdiff(msurv~miord, rho=1)
 survdiff(msurv~mitype, rho=0)
 # Peto test 
 survdiff(msurv~mitype, rho=1)
-# Se valutiamo il risultato qui ci accorgiamo che il log-rank test è pari a 0.13
+# Se valutiamo il risultato qui ci accorgiamo che il log-rank test ? pari a 0.13
 # ma questa variabile non ha rischi proporzionali, quindi in teoria
 # siam portati a non rifiutare l'hp nulla anche se alla fine sembra 
 # da rifiutare. 
-# se vediamo il test di peto, invece, che è capace di valutare la situazione anche 
-# quando è rifiutato l'assunto di rischi proporzionali, siamo sicurdi di poter
+# se vediamo il test di peto, invece, che ? capace di valutare la situazione anche 
+# quando ? rifiutato l'assunto di rischi proporzionali, siamo sicurdi di poter
 # accettare l'ipotesi.
 
 
@@ -155,6 +157,7 @@ plot(mfit.agecl)
 #########################
 # univariate COX regression model
 #########################
+
 cox.bymiord<-coxph(msurv ~ miord , iter.max=20)
 cox.bymitype<-coxph(msurv ~ mitype , iter.max=20)
 cox.bysex<-coxph(msurv ~ sex, iter.max=20)
@@ -188,13 +191,13 @@ cox.comp <- coxph(msurv ~ factor(agecl) + miord+mitype + chf+sho+sex+factor(cpkc
 # Assess PH by estimating log relative hazard over time
 # we could save scaled shoenfeld residual and plot them versus time or log(time)
 
-# Andiamo a vedere se l'ipotesi del modello di cox è stata mantenuta
+# Andiamo a vedere se l'ipotesi del modello di cox ? stata mantenuta
 # quella dei rischi proprozionali
 
 r <- resid(cox.comp, "scaledsch")
 # more easy
 
-# Andiamo a vedere se l'ipotesi del modello di cox è stata mantenuta
+# Andiamo a vedere se l'ipotesi del modello di cox ? stata mantenuta
 # quella dei rischi proprozionali
 # Ci sono tre tipi di residui di schenfel. 
 # Quelli scalati, quelli non scalati e un terzo che non ricordo come si chiama
@@ -204,7 +207,7 @@ r <- resid(cox.comp, "scaledsch")
 
 plot(cox.zph(cox.comp))    # invokes plot.cox.zph
 
-# In questo grafico son messi i grafici uno dopo l'altro, non si capisce un cazzi
+# In questo grafico son messi i grafici uno dopo l'altro, non si capisce un cazz
 
 zph.comp<- cox.zph(cox.comp, transform = 'log')
 par(mfrow=c(3,3))
@@ -227,12 +230,12 @@ abline(h=0, lty=3)
 plot(zph.comp[9])
 abline(h=0, lty=3)
 
-# Su alcuni grafici, tolte le età, si può rilevar eun andamento
+# Su alcuni grafici, tolte le et?, si pu? rilevar eun andamento
 # allora si crea un test che dovrebbe cercare il coefficiente di 
 # correlazione linerare tra ciascuno di questi residui e il tempo. 
 
 print(zph.comp)
 
 
-# vediamo che mitype e cpkcl dell'ultima classe può dare noia 
-# Quindi in teoria l'uniche correlazioni lineari potrebbero essere quelle lì
+# vediamo che mitype e cpkcl dell'ultima classe pu? dare noia 
+# Quindi in teoria l'uniche correlazioni lineari potrebbero essere quelle l?

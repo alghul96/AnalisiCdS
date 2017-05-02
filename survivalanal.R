@@ -1,5 +1,5 @@
 # Importazione delle librerie
-
 library(epicalc)
-library(foreign)
+library(survival)
+
 
