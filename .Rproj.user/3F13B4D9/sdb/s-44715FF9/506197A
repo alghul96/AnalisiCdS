@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1493723451549.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "506197A",
+    "lastKnownWriteTime" : 1493723464,
+    "last_content_update" : 1493723464769,
+    "path" : "~/GitHub/AnalisiCdS/dataimport.R",
+    "project_path" : "dataimport.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
