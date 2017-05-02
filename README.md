@@ -6,7 +6,7 @@ Riguarda una semplice analisi epidemiologica fatta tramite Epicalc.
 #### Elenco dei File ####
 
 - oldscripy: Cartella contenente script di python
--- sampleanalysis.py: calco dell'analisi con un modello logistico, da: http://blog.yhat.com/posts/logistic-regression-python-rodeo.html
--- externalfunction.py: file dove si trovano le funzioni utili all'analisi
+  - sampleanalysis.py: calco dell'analisi con un modello logistico, da: http://blog.yhat.com/posts/logistic-regression-python-rodeo.html
+  - externalfunction.py: file dove si trovano le funzioni utili all'analisi
 
 - dataimport.R: importazione dati
