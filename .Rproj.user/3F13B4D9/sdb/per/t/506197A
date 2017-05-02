@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "Dataset <- read.dta(\"renal_failure.dta\")\n",
+    "contents" : "Dataset <- read.dta(\"renal_failure.dta\")\nuse(Dataset)\n",
     "created" : 1493723451549.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "331702881",
+    "hash" : "2353535332",
     "id" : "506197A",
-    "lastKnownWriteTime" : 1493727075,
-    "last_content_update" : 1493727075426,
+    "lastKnownWriteTime" : 1493729558,
+    "last_content_update" : 1493729558223,
     "path" : "~/GitHub/AnalisiCdS/dataimport.R",
     "project_path" : "dataimport.R",
     "properties" : {

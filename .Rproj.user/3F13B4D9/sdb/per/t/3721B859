@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "# ciao morig",
+    "contents" : "des()\nstr(Dataset)\n",
     "created" : 1493728020547.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "211721633",
+    "hash" : "4290283200",
     "id" : "3721B859",
-    "lastKnownWriteTime" : 1493728084,
-    "last_content_update" : 1493728084665,
+    "lastKnownWriteTime" : 1493729690,
+    "last_content_update" : 1493729690486,
     "path" : "~/GitHub/AnalisiCdS/analisiesplorativa.R",
     "project_path" : "analisiesplorativa.R",
     "properties" : {
