@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Importazione delle librerie\n\nlibrary(epicalc)\nlibrary(foreign)\n\n",
+    "created" : 1493723998803.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "305151151",
+    "id" : "49ED321B",
+    "lastKnownWriteTime" : 1493727052,
+    "last_content_update" : 1493727052121,
+    "path" : "~/GitHub/AnalisiCdS/survivalanal.R",
+    "project_path" : "survivalanal.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
