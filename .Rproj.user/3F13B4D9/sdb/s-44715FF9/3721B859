@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# ciao morig",
+    "created" : 1493728020547.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "211721633",
+    "id" : "3721B859",
+    "lastKnownWriteTime" : 1493728084,
+    "last_content_update" : 1493728084665,
+    "path" : "~/GitHub/AnalisiCdS/analisiesplorativa.R",
+    "project_path" : "analisiesplorativa.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
