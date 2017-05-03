@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "Dataset <- read.dta(\"renal_failure.dta\")\nuse(Dataset)\n",
+    "contents" : "library(readxl)\nsurvival <- read_excel(\"D:/Box Sync/#UNI/Casi di Studio/Analisi/survival.xlsx\")\n\n",
     "created" : 1493723451549.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2353535332",
+    "hash" : "2346701817",
     "id" : "506197A",
-    "lastKnownWriteTime" : 1493729558,
-    "last_content_update" : 1493729558223,
+    "lastKnownWriteTime" : 1493796498,
+    "last_content_update" : 1493796498911,
     "path" : "~/GitHub/AnalisiCdS/dataimport.R",
     "project_path" : "dataimport.R",
     "properties" : {

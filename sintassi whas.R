@@ -102,9 +102,10 @@ lty = 1:2)
 
 
 # Create KM estimates broken out by mitype
-
+# assunti di azardi proporzionali
 
 mfit.bymitype<-survfit((msurv)~mitype)
+
 plot(mfit.bymitype)
 # with confidence band
 plot(mfit.bymitype, conf.int = TRUE, col = c("black", "red"), lty = 1:2)
