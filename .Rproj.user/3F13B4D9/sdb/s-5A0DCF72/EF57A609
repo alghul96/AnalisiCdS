@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "library(epicalc)\nlibrary(survival)\n\n###########################\n#### OVERALL SURVIVAL #####\n\n\n### STIMA DEL TOTAL INCIDENCE RATE ####\n\n\n#### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####\n\n",
+    "contents" : "library(epicalc)\nlibrary(survival)\n\n###########################\n#### OVERALL SURVIVAL #####\n\n\n# Creazione dell'oggetto survivial\nuse(survival[1:202,-24])\n\nmsurv<- Surv(`OVERALL SURVIVAL (mesi)`)\n\nmfit <- survfit((msurv)~1)\noptions(survfit.print.mean = TRUE)\n\nsummary(mfit)\nplot(mfit, main = \"Funzione di sopravvivenza\", xlab = \"Mesi dall'operazione\", ylab = \"Funzione di sopravvivenza\")\n\n\n\n### STIMA DELLA CUMULATIVE HAZARD FUNCTION ####\n\n\n#### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####\n\n",
     "created" : 1493797175897.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3134812024",
+    "hash" : "80980799",
     "id" : "EF57A609",
-    "lastKnownWriteTime" : 1493797426,
-    "last_content_update" : 1493797426678,
+    "lastKnownWriteTime" : 1493798212,
+    "last_content_update" : 1493798212644,
     "path" : "~/GitHub/AnalisiCdS/nonParametrica.R",
     "project_path" : "nonParametrica.R",
     "properties" : {
