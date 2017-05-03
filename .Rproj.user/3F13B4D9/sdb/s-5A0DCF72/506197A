@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "library(readxl)\nsurvival <- read_excel(\"D:/Box Sync/#UNI/Casi di Studio/Analisi/survival.xlsx\")\n\n",
+    "contents" : "library(readxl)\nsurvival <- read_excel(\"D:/Box Sync/#UNI/Casi di Studio/Analisi/survival.xlsx\")\nsurvival = survival[1:202,]\n\n",
     "created" : 1493723451549.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2346701817",
+    "hash" : "2025918634",
     "id" : "506197A",
-    "lastKnownWriteTime" : 1493796591,
-    "last_content_update" : 1493796591,
+    "lastKnownWriteTime" : 1493802506,
+    "last_content_update" : 1493802506294,
     "path" : "~/GitHub/AnalisiCdS/dataimport.R",
     "project_path" : "dataimport.R",
     "properties" : {
