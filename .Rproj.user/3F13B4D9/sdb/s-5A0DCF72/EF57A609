@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "library(epicalc)\nlibrary(survival)\n\n###########################\n#### OVERALL SURVIVAL #####\n\n\n# Creazione dell'oggetto survivial\nuse(survival[1:202,-24])\n\nmsurv<- Surv(`OVERALL SURVIVAL (mesi)`)\n\nmfit <- survfit((msurv)~1)\noptions(survfit.print.mean = TRUE)\n\nsummary(mfit)\nplot(mfit, main = \"Funzione di sopravvivenza\", xlab = \"Mesi dall'operazione\", ylab = \"Funzione di sopravvivenza\")\n\n\n\n### STIMA DELLA CUMULATIVE HAZARD FUNCTION ####\n\n\n#### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####\n\n",
+    "contents" : "library(epicalc)\nlibrary(survival)\n\n###########################\n#### OVERALL SURVIVAL #####\n\n\n# Creazione dell'oggetto survivial\nuse(survival[1:202,-24])\n\nsurvival = survival[1:202,-24]\n\nmsurv<- Surv(`OVERALL SURVIVAL (mesi)`)\n\nmfit <- survfit((msurv)~1)\noptions(survfit.print.mean = TRUE)\nmy.fit = summary(mfit)\n\n#### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####\n\nplot(mfit, main = \"Funzione di sopravvivenza\", xlab = \"Mesi dall'operazione\")\n\n\n### STIMA DELLA CUMULATIVE HAZARD FUNCTION ####\n\nplot(mfit, fun=\"cumhaz\", main = \"Funzione cumulativa del Rischio (-logS(t))\") # funzione cumulativa di azardo \n\n\n#### ANALISI DELLE COVARIATE: LNR ####\n\n#### Analisi della sopravvivenza\n\nmfit.LNR = survfit(msurv ~ survival$`LNR CLASSE`)\n\nmfit.LNR\n\npar(mfrow = c(1,2))\nplot(mfit.LNR, conf.int = FALSE, col = c(\"red\", \"green\", \"blue\"), main = \"Sopravvivenza per LNR\")\nplot(mfit.LNR, conf.int = TRUE, col = c(\"red\", \"green\", \"blue\"))\nlegend(\"topright\", legend = c(\"Classe 0\",\"Classe 1\", \"Classe 2\"), col = c(\"red\", \"green\", \"blue\"), lty = c(2,2,2))\n\n#### Log Rank test\n\nsurvdiff(msurv ~ survival$`LNR CLASSE`, rho = 0) # rifiutiamo l'hp che le curve di sopravvivenza sono uguali\n\n\n\n#### ANALISI DELLE COVARIATE: LODDS ####\n\n#### Analisi della sopravvivenza\n\nmfit.LNR = survfit(msurv ~ survival$`LNR CLASSE`)\n\nmfit.LNR\n\npar(mfrow = c(1,2))\nplot(mfit.LNR, conf.int = FALSE, col = c(\"red\", \"green\", \"blue\"), main = \"Sopravvivenza per LNR\")\nplot(mfit.LNR, conf.int = TRUE, col = c(\"red\", \"green\", \"blue\"))\nlegend(\"topright\", legend = c(\"Classe 0\",\"Classe 1\", \"Classe 2\"), col = c(\"red\", \"green\", \"blue\"), lty = c(2,2,2))\n\n#### Log Rank test\n\nsurvdiff(msurv ~ survival$`LNR CLASSE`, rho = 0) # rifiutiamo l'hp che le curve di sopravvivenza sono uguali\n\n",
     "created" : 1493797175897.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "80980799",
+    "hash" : "444654017",
     "id" : "EF57A609",
-    "lastKnownWriteTime" : 1493798212,
-    "last_content_update" : 1493798212644,
+    "lastKnownWriteTime" : 1493800342,
+    "last_content_update" : 1493800342925,
     "path" : "~/GitHub/AnalisiCdS/nonParametrica.R",
     "project_path" : "nonParametrica.R",
     "properties" : {
