@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1493796678612.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "603AC84",
+    "lastKnownWriteTime" : 1493796691,
+    "last_content_update" : 1493796691083,
+    "path" : "~/GitHub/AnalisiCdS/descrittiva.R",
+    "project_path" : "descrittiva.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
