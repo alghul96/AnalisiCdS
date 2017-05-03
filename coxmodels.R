@@ -22,13 +22,25 @@ use(modeldata)
 model0 = coxph(msurv ~ Asa + nLinf12 + stadio + ricN + LNR + LODDS)
 summary(model0)
 
-table(msurv, LNR)
+
+##### NUOVI MODELLI ####
+
+model0 = coxph(msurv ~ Asa)
+summary(model0)
+
+
+
+
+plot(resid(model0, "scaledsch"))
+cox.zph(model0)
 
 # Valutando la significatività
 
 summary(coxph(msurv ~ ricN + LNR))
+
 summary(coxph(msurv ~ LODDS + LNR))
 summary(coxph(msurv ~ LNR + LODDS))
 
+xtabs( ~ LNR + LODDS + ricN)
 
 summary(co)

@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "# Importazione delle librerie\nlibrary(epicalc)\nlibrary(survival)\n\n# recoding delle variabili\n\nmodeldata = as.data.frame(rep(0, 202))\n\nmodeldata[, \"Asa\"] = factor(survival$ASA)\nmodeldata[,\"nLinf12\"] = factor(survival$`>12`)\nmodeldata[, \"stadio\"] = factor(survival$STADIO)\nmodeldata[, \"ricN\"] = factor(survival$Ric_N)\nmodeldata[, \"LNR\"] = factor(survival$`LNR CLASSE`)\nmodeldata[, \"LODDS\"] = factor(survival$`LODDS CLASSE`)\nmodeldata = modeldata[,-1]\nstr(modeldata)\n\nuse(modeldata)\n\n#### Modello di Cox multivariato ####\n\nmodel0 = coxph(msurv ~ Asa + nLinf12 + stadio + ricN + LNR + LODDS)\nsummary(model0)\n\ntable(msurv, LNR)\n\n# Valutando la significatività\n\nsummary(coxph(msurv ~ ricN + LNR))\nsummary(coxph(msurv ~ LODDS + LNR))\nsummary(coxph(msurv ~ LNR + LODDS))\n\n\nsummary(co)",
+    "contents" : "# Importazione delle librerie\nlibrary(epicalc)\nlibrary(survival)\n\n# recoding delle variabili\n\nmodeldata = as.data.frame(rep(0, 202))\n\nmodeldata[, \"Asa\"] = factor(survival$ASA)\nmodeldata[,\"nLinf12\"] = factor(survival$`>12`)\nmodeldata[, \"stadio\"] = factor(survival$STADIO)\nmodeldata[, \"ricN\"] = factor(survival$Ric_N)\nmodeldata[, \"LNR\"] = factor(survival$`LNR CLASSE`)\nmodeldata[, \"LODDS\"] = factor(survival$`LODDS CLASSE`)\nmodeldata = modeldata[,-1]\nstr(modeldata)\n\nuse(modeldata)\n\n#### Modello di Cox multivariato ####\n\nmodel0 = coxph(msurv ~ Asa + nLinf12 + stadio + ricN + LNR + LODDS)\nsummary(model0)\n\n\n##### NUOVI MODELLI ####\n\nmodel0 = coxph(msurv ~ Asa)\nsummary(model0)\n\n\n\n\nplot(resid(model0, \"scaledsch\"))\ncox.zph(model0)\n\n# Valutando la significatività\n\nsummary(coxph(msurv ~ ricN + LNR))\n\nsummary(coxph(msurv ~ LODDS + LNR))\nsummary(coxph(msurv ~ LNR + LODDS))\n\nxtabs( ~ LNR + LODDS + ricN)\n\nsummary(co)",
     "created" : 1493814244046.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1106960791",
+    "hash" : "4117036492",
     "id" : "47C3A837",
-    "lastKnownWriteTime" : 1493818179,
-    "last_content_update" : 1493818179914,
+    "lastKnownWriteTime" : 1493820251,
+    "last_content_update" : 1493820251325,
     "path" : "~/GitHub/AnalisiCdS/coxmodels.R",
     "project_path" : "coxmodels.R",
     "properties" : {
