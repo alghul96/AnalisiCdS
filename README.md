@@ -10,3 +10,5 @@ Riguarda una semplice analisi epidemiologica fatta tramite Epicalc, nello specif
   - externalfunction.py: file dove si trovano le funzioni utili all'analisi
 
 - dataimport.R: importazione dati
+- nonParametrica.R: analisi non parametrica e descrittiva
+- coxmodels.R: analisi semi-parametrica della sopravvivenza
