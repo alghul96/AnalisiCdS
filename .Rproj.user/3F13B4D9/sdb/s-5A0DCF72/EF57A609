@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(epicalc)\nlibrary(survival)\n\n###########################\n#### OVERALL SURVIVAL #####\n\n\n### STIMA DEL TOTAL INCIDENCE RATE ####\n\n\n#### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####\n\n",
+    "created" : 1493797175897.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3134812024",
+    "id" : "EF57A609",
+    "lastKnownWriteTime" : 1493797426,
+    "last_content_update" : 1493797426678,
+    "path" : "~/GitHub/AnalisiCdS/nonParametrica.R",
+    "project_path" : "nonParametrica.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
