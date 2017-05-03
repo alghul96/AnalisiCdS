@@ -1,14 +1,25 @@
 {
     "collab_server" : "",
+<<<<<<< HEAD:.Rproj.user/3F13B4D9/sdb/per/t/506197A
     "contents" : "library(readxl)\nsurvival <- read_excel(\"D:/Box Sync/#UNI/Casi di Studio/Analisi/survival.xlsx\")\nsurvival = survival[1:202, ]\n",
+=======
+    "contents" : "library(readxl)\nsurvival <- read_excel(\"D:/Box Sync/#UNI/Casi di Studio/Analisi/survival.xlsx\")\nsurvival = survival[1:202,]\n\n",
+>>>>>>> origin/master:.Rproj.user/3F13B4D9/sdb/s-5A0DCF72/506197A
     "created" : 1493723451549.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
+<<<<<<< HEAD:.Rproj.user/3F13B4D9/sdb/per/t/506197A
     "hash" : "3507626042",
     "id" : "506197A",
     "lastKnownWriteTime" : 1493812471,
     "last_content_update" : 1493812471026,
+=======
+    "hash" : "2025918634",
+    "id" : "506197A",
+    "lastKnownWriteTime" : 1493802506,
+    "last_content_update" : 1493802506294,
+>>>>>>> origin/master:.Rproj.user/3F13B4D9/sdb/s-5A0DCF72/506197A
     "path" : "~/GitHub/AnalisiCdS/dataimport.R",
     "project_path" : "dataimport.R",
     "properties" : {

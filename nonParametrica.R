@@ -1,15 +1,24 @@
 library(epicalc)
 library(survival)
 
+<<<<<<< HEAD
+=======
+###########################
+#### OVERALL SURVIVAL #####
+
+>>>>>>> origin/master
 
 # Creazione dell'oggetto survivial
 use(survival)
 
 
+<<<<<<< HEAD
 ###########################
 #### OVERALL SURVIVAL #####
 
 
+=======
+>>>>>>> origin/master
 msurv<- Surv(`OVERALL SURVIVAL (mesi)`, Morto == 1)
 
 mfit <- survfit((msurv)~1)
@@ -60,4 +69,8 @@ legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red",
 
 #### Log Rank test
 
+<<<<<<< HEAD
 survdiff(msurv ~ survival$`LODDS CLASSE`, rho = 0) # rifiutiamo l'hp che le curve di sopravvivenza sono uguali
+=======
+survdiff(msurv ~ survival$`LODDS CLASSE`, rho = 0) # rifiutiamo l'hp che le curve di sopravvivenza sono uguali
+>>>>>>> origin/master
