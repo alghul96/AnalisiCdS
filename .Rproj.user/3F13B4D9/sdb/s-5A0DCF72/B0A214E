@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1493802445276.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B0A214E",
+    "lastKnownWriteTime" : 2475636339810066802,
+    "last_content_update" : 1493802445276,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "FEE8349D",
+        "caption" : "survival",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=survival&cache_key=FEE8349D",
+        "displayedObservations" : "202",
+        "environment" : "",
+        "object" : "survival",
+        "preview" : "0",
+        "totalObservations" : "202",
+        "variables" : "25"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
