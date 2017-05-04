@@ -21,8 +21,8 @@ my.fit = summary(mfit)
 #### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####
 
 plot(mfit, main = "Funzione di sopravvivenza", xlab = "Mesi dall'operazione")
-ov_surv_curv<-autoplot(mfit, main = "Funzione di sopravvivenza", xlab = "Mesi dall'operazione",surv.colour = "orange",censor.colour = "red",ylim=c(0,1))
-
+ov_surv_curv<-autoplot(mfit, main = "Funzione di sopravvivenza", xlab = "Mesi dall'operazione", surv.colour = "orange", censor.colour = "red", ylim=c(0,1))
+ 
 
 ### STIMA DELLA CUMULATIVE HAZARD FUNCTION ####
 
