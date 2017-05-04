@@ -4,6 +4,7 @@ library(survival)
 library(ggfortify)
 library(gridExtra)
 library(ggplot2)
+## http://rpubs.com/sinhrks/plot_surv
 ###########################
 #### OVERALL SURVIVAL #####
 
@@ -94,7 +95,7 @@ my.fit = summary(difit)
 #### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####
 
 plot(difit, main = "Funzione di sopravvivenza Disease-Free", xlab = "Mesi dall'operazione")
-df_surv_curv<-autoplot(difit,,surv.colour = "orange",censor.colour = "red",ylim=c(0,1),main = "Funzione di sopravvivenza")
+df_surv_curv<-autoplot(difit,surv.colour = "orange",censor.colour = "red",ylim=c(0,1),main = "Funzione di sopravvivenza")
 
 ### STIMA DELLA CUMULATIVE HAZARD FUNCTION ####
 
@@ -169,7 +170,7 @@ ov_lnr
 ov_lnr_conf
 ov_lodds
 ov_lodds_conf
-ov_loods_lnr<-grid.arrange(ov_lodds, ov_lnr,ncol=2,nrow = 1)
+ov_loods_lnr<-grid.arrange(ov_lodds, ov_lnr, ncol=2, nrow=1)
 
 df_surv_curv
 df_cum_haz
