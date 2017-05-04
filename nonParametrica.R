@@ -1,7 +1,9 @@
+load(".RData")
 library(epicalc)
 library(survival)
-
-
+library(ggfortify)
+library(gridExtra)
+library(ggplot2)
 ###########################
 #### OVERALL SURVIVAL #####
 
@@ -19,12 +21,13 @@ my.fit = summary(mfit)
 #### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####
 
 plot(mfit, main = "Funzione di sopravvivenza", xlab = "Mesi dall'operazione")
+ov_surv_curv<-autoplot(mfit, main = "Funzione di sopravvivenza", xlab = "Mesi dall'operazione",surv.colour = "orange",censor.colour = "red",ylim=c(0,1))
 
 
 ### STIMA DELLA CUMULATIVE HAZARD FUNCTION ####
 
-plot(mfit, fun="cumhaz", main = "Funzione cumulativa del Rischio (-logS(t))") # funzione cumulativa di azardo 
-
+plot(mfit, fun="cumhaz", main = "Funzione cumulativa di rischio (-logS(t))") # funzione cumulativa di rischio 
+ov_cum_haz<-autoplot(mfit,fun="cumhaz",main = "Funzione cumulativa di rischio (-log S(t))",surv.colour = "skyblue1",censor.colour = "blue")
 
 #### ANALISI DELLE COVARIATE: LNR ####
 
@@ -39,10 +42,12 @@ plot(mfit.LNR, conf.int = FALSE, col = c("red", "green", "blue"), main = "Soprav
 plot(mfit.LNR, conf.int = TRUE, col = c("red", "green", "blue"))
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
 
+ov_lnr<-autoplot(mfit.LNR,conf.int = F)
+ov_lnr_conf<-autoplot(mfit.LNR)
+
 #### Log Rank test
 
 survdiff(msurv ~ survival$`LNR CLASSE`, rho = 0) # rifiutiamo l'hp che le curve di sopravvivenza sono uguali
-
 
 
 #### ANALISI DELLE COVARIATE: LODDS ####
@@ -58,6 +63,9 @@ plot(mfit.LODDS, conf.int = FALSE, col = c("red", "green", "blue"), main = "Sopr
 plot(mfit.LODDS, conf.int = TRUE, col = c("red", "green", "blue"))
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
 
+ov_lodds<-autoplot(mfit.LODDS,conf.int = F)
+ov_lodds_conf<-autoplot(mfit.LODDS)
+
 #### Log Rank test
 
 survdiff(msurv ~ survival$`LODDS CLASSE`, rho = 0) # rifiutiamo l'hp che le curve di sopravvivenza sono uguali
@@ -68,6 +76,8 @@ survdiff(msurv ~ survival$`LODDS CLASSE`, rho = 0) # rifiutiamo l'hp che le curv
 par(mfrow = c(1,2))
 plot(mfit.LODDS, conf.int = FALSE, col = c("red", "green", "blue"), main = "Sopravvivenza per LODDS")
 plot(mfit.LNR, conf.int = FALSE, col = c("red", "green", "blue"), main = "Sopravvivenza per LNR")
+
+#grid.arrange(ov_lodds, ov_lnr,ncol=2,nrow = 1)
 
 # Kaplan–Meier survival curves of the patients staged by log odds of positive lymph nodes (LODDS) and lymph node ratio.
 
@@ -84,12 +94,12 @@ my.fit = summary(difit)
 #### PLOT DELLA CURVA DELLA SOPRAVVIVENZA ####
 
 plot(difit, main = "Funzione di sopravvivenza Disease-Free", xlab = "Mesi dall'operazione")
-
+df_surv_curv<-autoplot(difit,,surv.colour = "orange",censor.colour = "red",ylim=c(0,1),main = "Funzione di sopravvivenza")
 
 ### STIMA DELLA CUMULATIVE HAZARD FUNCTION ####
 
-plot(difit, fun="cumhaz", main = "Funzione cumulativa del Rischio (-logS(t))") # funzione cumulativa di azardo 
-
+plot(difit, fun="cumhaz", main = "Funzione cumulativa del Rischio (-logS(t))") # funzione cumulativa di rischio 
+df_cum_haz<-autoplot(difit,fun="cumhaz",surv.colour = "skyblue1",censor.colour = "blue",main = "Funzione cumulativa di rischio (-log S(t))")
 
 #### ANALISI DELLE COVARIATE: LNR ####
 
@@ -103,6 +113,9 @@ par(mfrow = c(1,2))
 plot(difit.LNR, conf.int = FALSE, col = c("red", "green", "blue"), main = "Disease-Free per LNR")
 plot(difit.LNR, conf.int = TRUE, col = c("red", "green", "blue"))
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
+
+df_lnr<-autoplot(difit.LNR,conf.int = F)
+df_lnr_conf<-autoplot(difit.LNR)
 
 #### Log Rank test
 
@@ -122,6 +135,9 @@ par(mfrow = c(1,2))
 plot(difit.LODDS, conf.int = FALSE, col = c("red", "green", "blue"), main = "Disease-Free per LODDS")
 plot(difit.LODDS, conf.int = TRUE, col = c("red", "green", "blue"))
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
+
+df_lodds_conf<-autoplot(difit.LODDS)
+df_lodds<-autoplot(difit.LODDS,conf.int = F)
 
 #### Log Rank test
 
@@ -144,3 +160,22 @@ plot(mfit.LODDS, conf.int = FALSE, col = c("red", "green", "blue"), main = "Sopr
 plot(difit.LODDS, conf.int = FALSE, col = c("red", "green", "blue"), main = "Sopravvivenza Disease Free per LODDS")
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
 
+#grid.arrange(ov_lnr,df_lnr,ov_lodds,df_lodds,ncol=2,nrow = 2)
+
+##### Grafici
+ov_surv_curv
+ov_cum_haz
+ov_lnr
+ov_lnr_conf
+ov_lodds
+ov_lodds_conf
+ov_loods_lnr<-grid.arrange(ov_lodds, ov_lnr,ncol=2,nrow = 1)
+
+df_surv_curv
+df_cum_haz
+df_lnr
+df_lnr_conf
+df_lodds_conf
+df_lodds
+
+ov_df<-grid.arrange(ov_lnr,df_lnr,ov_lodds,df_lodds,ncol=2,nrow = 2)
