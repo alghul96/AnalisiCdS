@@ -67,9 +67,6 @@ summary(coxph(msurv ~ Asa + nLinf12 + stadio + LNR))
 model0 = coxph(msurv ~ Asa)
 summary(model0)
 
-
-
-
 plot(resid(model0, "scaledsch"))
 cox.zph(model0)
 

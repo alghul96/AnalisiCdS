@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# load(\".RData\")\n# download.file(url = \"http://cran.r-project.org/src/contrib/Archive/epicalc/epicalc_2.15.1.0.tar.gz\",\n#              destfile = \"epicalc_2.15.1.0.tar.gz\")\n# install.packages(pkgs=\"epicalc_2.15.1.0.tar.gz\", type=\"source\", repos=NULL)\n# unlink(\"epicalc_2.15.1.0.tar.gz\")\n\nlibrary(epicalc)\nlibrary(ggplot2)\n\nsurv<-survival\n\nstr(surv)\n\n#use(surv)\n#des()\n#summ()\n#table(SESSO)\n\nsummary(surv)\ntable(surv$`LNR CLASSE`)\ntable(surv$`LODDS CLASSE`)\n\n\nclasse_lnr<-ggplot(data=surv, aes(`LNR CLASSE`,fill=factor(`LNR CLASSE`))) +\n  geom_bar() +\n  ggtitle(\"Diagramma a barre: Classe LNR\") +\n  xlab(\"Classe LNR\") + ylab(\"Conteggio\") +\n  scale_fill_discrete(name=\"Classe LNR\") +\n  geom_text(stat=\"count\",aes(label=..count..),vjust=-0.5,size=4.2)\n\nclasse_lodds<-ggplot(data=surv, aes(`LODDS CLASSE`,fill=factor(`LODDS CLASSE`))) +\n  geom_bar()+\n  ggtitle(\"Diagramma a barre: Classe LODDS\") +\n  xlab(\"Classe LODDS\") + ylab(\"Conteggio\") +\n  scale_fill_discrete(name=\"Classe LODDS\") +\n  geom_text(stat=\"count\",aes(label=..count..),vjust=-0.5,size=4.2)\n\neta<-ggplot(data=surv, aes(`ETA'`)) +\n  geom_histogram(bins=20,fill = \"red\",colour=\"black\") +\n  labs(title=\"Diagramma a barre: età\",x=\"Classe età\", y=\"Conteggio\")\n\nshapiro.test(surv$`ETA'`)\n\n\nsesso<-ggplot(data=surv, aes(`SESSO`,fill=factor(`SESSO`))) +\n  geom_bar() +\n  labs(title=\"Diagramma a barre: sesso\",x=\"Sesso\", y=\"Conteggio\")\n\nmorto<-ggplot(data=surv, aes(`Morto`,fill=factor(`Morto`))) +\n  geom_bar() +\n  labs(title=\"Diagramma a barre: morti\",x=\"Decesso\", y=\"Conteggio\")\n\nmalato<-ggplot(data=surv, aes(`Malattia`,fill=factor(`Malattia`))) +\n  geom_bar() +\n  labs(title=\"Diagramma a barre: morti\",x=\"Ha avuto una ricaduta\", y=\"Conteggio\")\n\n\n\nbarlines <- \"#1F3552\"\noverall_surv<-ggplot(data=surv, aes(`OVERALL SURVIVAL (mesi)`,fill=as.factor(Morto))) +\n  geom_histogram(bins=20,colour = barlines) +\n  labs(title=\"Sopravvivenza totale\",x=\"Mesi\", y=\"Conteggio\")\n\n\nsesso\neta\n\nmorto\nmalato\n\nclasse_lnr\nclasse_lodds\n\n\n# overall_surv\n",
+    "created" : 1493983977957.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3243095123",
+    "id" : "6F4C71F5",
+    "lastKnownWriteTime" : 1493986822,
+    "last_content_update" : 1493986822689,
+    "path" : "~/GitHub/AnalisiCdS/descrittiva.R",
+    "project_path" : "descrittiva.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
