@@ -5,21 +5,26 @@ library(survival)
 
 # Plot della log minus log, per vedere l'hp di rischi proporzionali
 
-autoplot(
+prop.lnr = autoplot(
   mfit.LNR,
   fun = "cloglog",
-  col = c("red", "green", "blue"),
   #ylim = c(-2, 1),
-  conf.int = FALSE
+  conf.int = FALSE,
+  main = "Log minus log per LNR"
 )
 
-autoplot(
+prop.lodds = autoplot(
   mfit.LODDS,
   fun = "cloglog",
-  col = c("red", "green", "blue"),
   #ylim = c(-2, 1),
-  conf.int = FALSE
+  conf.int = FALSE,
+  main = "Log minus log per LODDS"
 )
+
+grid.arrange(prop.lnr,
+             prop.lodds,
+             ncol = 2,
+             nrow = 1)
 
 # Vediamo che l'ipotesi di rischi proporzionali sembra non essere rispettata
 

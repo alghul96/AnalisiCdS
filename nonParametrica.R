@@ -5,6 +5,9 @@ library(ggfortify)
 library(gridExtra)
 library(ggplot2)
 ## http://rpubs.com/sinhrks/plot_surv
+
+
+
 ###########################
 #### OVERALL SURVIVAL #####
 
@@ -43,8 +46,8 @@ plot(mfit.LNR, conf.int = FALSE, col = c("red", "green", "blue"), main = "Soprav
 plot(mfit.LNR, conf.int = TRUE, col = c("red", "green", "blue"))
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
 
-ov_lnr <- autoplot(mfit.LNR, conf.int = F, col = c("red", "green", "blue"), main = "Sopravvivenza per LNR")
-ov_lnr_conf <- autoplot(mfit.LNR, col = c("red", "green", "blue"), main = "Sopravvivenza per LNR")
+ov_lnr <- autoplot(mfit.LNR, conf.int = F, col = c("red", "green", "blue"), main = "Sopravvivenza per LNR", ylim=c(0,1))
+ov_lnr_conf <- autoplot(mfit.LNR, col = c("red", "green", "blue"), main = "Sopravvivenza per LNR", ylim=c(0,1))
 
 #### Log Rank test
 
@@ -64,8 +67,8 @@ plot(mfit.LODDS, conf.int = FALSE, col = c("red", "green", "blue"), main = "Sopr
 plot(mfit.LODDS, conf.int = TRUE, col = c("red", "green", "blue"))
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
 
-ov_lodds<-autoplot(mfit.LODDS,conf.int = F, main = "Sopravvivenza per LODDS")
-ov_lodds_conf <- autoplot(mfit.LODDS, main = "Sopravvivenza per LODDS")
+ov_lodds<-autoplot(mfit.LODDS,conf.int = F, main = "Sopravvivenza per LODDS", ylim=c(0,1))
+ov_lodds_conf <- autoplot(mfit.LODDS, main = "Sopravvivenza per LODDS",ylim=c(0,1))
 
 #### Log Rank test
 
@@ -118,7 +121,7 @@ df_cum_haz <-
     difit,
     fun = "cumhaz",
     surv.colour = "skyblue1",
-    censor = FALSE,
+    censor = TRUE,
     main = "Funzione cumulativa di rischio (-log S(t)) per Disease-Free"
   )
 
@@ -159,7 +162,7 @@ plot(difit.LODDS, conf.int = FALSE, col = c("red", "green", "blue"), main = "Dis
 plot(difit.LODDS, conf.int = TRUE, col = c("red", "green", "blue"))
 legend("topright", legend = c("Classe 0","Classe 1", "Classe 2"), col = c("red", "green", "blue"), lty = c(1,1,1))
 
-df_lodds_conf<-autoplot(difit.LODDS)
+df_lodds_conf<-autoplot(difit.LODDS,  main = "Disease-Free per LODDS")
 df_lodds <- autoplot(difit.LODDS, 
                      conf.int = TRUE,
                      main = "Disease-Free per LODDS",
