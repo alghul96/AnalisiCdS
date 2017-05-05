@@ -12,15 +12,15 @@
     "path" : null,
     "project_path" : null,
     "properties" : {
-        "cacheKey" : "FEE8349D",
+        "cacheKey" : "D18783AB",
         "caption" : "survival",
-        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=survival&cache_key=FEE8349D",
-        "displayedObservations" : "202",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=survival&cache_key=D18783AB",
+        "displayedObservations" : "213",
         "environment" : "",
         "object" : "survival",
         "preview" : "0",
-        "totalObservations" : "202",
-        "variables" : "25"
+        "totalObservations" : "213",
+        "variables" : "28"
     },
     "relative_order" : 4,
     "source_on_save" : false,

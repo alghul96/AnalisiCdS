@@ -55,11 +55,12 @@ summary(coxph(msurv ~ LODDS))
 
 
 
-#### Modello di Cox multivariato ####
+#### Modello di Cox multivariato  ####
 
 model0 = coxph(msurv ~ Asa + nLinf12 + stadio + ricN + LNR + LODDS)
 summary(model0)
 
+summary(coxph(msurv ~ Asa + nLinf12 + stadio + LNR))
 
 ##### NUOVI MODELLI ####
 
