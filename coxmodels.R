@@ -38,6 +38,7 @@ modeldata[, "stadio"] = factor(survival$STADIO)
 modeldata[, "ricN"] = factor(survival$Ric_N)
 modeldata[, "LNR"] = factor(survival$`LNR CLASSE`)
 modeldata[, "LODDS"] = factor(survival$`LODDS CLASSE`)
+modeldata[,"Age"] = (survival$`ETA'`)
 modeldata = modeldata[,-1]
 str(modeldata)
 
@@ -65,7 +66,9 @@ summary(coxph(msurv ~ LODDS))
 model0 = coxph(msurv ~ Asa + nLinf12 + stadio + ricN + LNR + LODDS)
 summary(model0)
 
-summary(coxph(msurv ~ Asa + nLinf12 + stadio + LNR))
+summary(coxph(msurv ~ Age + Asa + nLinf12 + stadio + LNR))
+
+summary(coxph(msurv ~ Age + nLinf12 + LNR))
 
 ##### NUOVI MODELLI ####
 
