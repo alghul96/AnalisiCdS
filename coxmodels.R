@@ -70,21 +70,8 @@ summary(coxph(msurv ~ Age + Asa + nLinf12 + stadio + LNR))
 
 summary(coxph(msurv ~ Age + nLinf12 + LNR))
 
-##### NUOVI MODELLI ####
+summary(coxph(msurv ~ Age + LNR + Asa))
 
-model0 = coxph(msurv ~ Asa)
-summary(model0)
 
-plot(resid(model0, "scaledsch"))
-cox.zph(model0)
-
-# Valutando la significatività
-
-summary(coxph(msurv ~ ricN + LNR))
-
-summary(coxph(msurv ~ LODDS + LNR))
-summary(coxph(msurv ~ LNR + LODDS))
-
-xtabs( ~ LNR + LODDS + ricN)
 
 summary(co)
