@@ -72,6 +72,8 @@ summary(coxph(msurv ~ Age + nLinf12 + LNR))
 
 summary(coxph(msurv ~ Age + LNR + Asa))
 
+recode(Asa, old.value = 1, new.value = NA)
 
+Asanew = factor(as.numeric(Asa))
 
-summary(co)
+summary(coxph(disurv ~ Age + LNR + Asanew))
